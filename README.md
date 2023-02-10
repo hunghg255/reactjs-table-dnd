@@ -18,7 +18,7 @@ npm install --save reactjs-table-dnd
 ```js
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+import { SortableContainer, SortableElement } from 'reactjs-table-dnd';
 import arrayMove from 'array-move';
 
 const SortableItem = SortableElement(({ value }) => <li>{value}</li>);
