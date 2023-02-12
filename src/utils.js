@@ -9,7 +9,7 @@ export function arrayMove(array, from, to) {
     if (typeof console !== 'undefined') {
       // eslint-disable-next-line no-console
       console.warn(
-        "Deprecation warning: arrayMove will no longer be exported by 'react-sortable-hoc' in the next major release. Please install the `array-move` package locally instead. https://www.npmjs.com/package/array-move",
+        "Deprecation warning: arrayMove will no longer be exported by 'react-sortable-hoc' in the next major release. Please install the `array-move` package locally instead. https://www.npmjs.com/package/array-move"
       );
     }
   }
@@ -63,7 +63,7 @@ export const vendorPrefix = (function() {
 })();
 
 export function setInlineStyles(node, styles) {
-  Object.keys(styles).forEach((key) => {
+  Object.keys(styles).forEach(key => {
     node.style[key] = styles[key];
   });
 }
@@ -154,7 +154,7 @@ export function isTouchEvent(event) {
   );
 }
 
-export function getEdgeOffset(node, parent, offset = {left: 0, top: 0}) {
+export function getEdgeOffset(node, parent, offset = { left: 0, top: 0 }) {
   if (!node) {
     return undefined;
   }
@@ -182,7 +182,7 @@ export function getTargetIndex(newIndex, prevIndex, oldIndex) {
   }
 }
 
-export function getLockPixelOffset({lockOffset, width, height}) {
+export function getLockPixelOffset({ lockOffset, width, height }) {
   let offsetX = lockOffset;
   let offsetY = lockOffset;
   let unit = 'px';
@@ -194,7 +194,7 @@ export function getLockPixelOffset({lockOffset, width, height}) {
       match !== null,
       'lockOffset value should be a number or a string of a ' +
         'number followed by "px" or "%". Given %s',
-      lockOffset,
+      lockOffset
     );
 
     offsetX = parseFloat(lockOffset);
@@ -205,7 +205,7 @@ export function getLockPixelOffset({lockOffset, width, height}) {
   invariant(
     isFinite(offsetX) && isFinite(offsetY),
     'lockOffset value should be a finite. Given %s',
-    lockOffset,
+    lockOffset
   );
 
   if (unit === '%') {
@@ -219,7 +219,7 @@ export function getLockPixelOffset({lockOffset, width, height}) {
   };
 }
 
-export function getLockPixelOffsets({height, width, lockOffset}) {
+export function getLockPixelOffsets({ height, width, lockOffset }) {
   const offsets = Array.isArray(lockOffset)
     ? lockOffset
     : [lockOffset, lockOffset];
@@ -228,14 +228,14 @@ export function getLockPixelOffsets({height, width, lockOffset}) {
     offsets.length === 2,
     'lockOffset prop of SortableContainer should be a single ' +
       'value or an array of exactly two values. Given %s',
-    lockOffset,
+    lockOffset
   );
 
   const [minLockOffset, maxLockOffset] = offsets;
 
   return [
-    getLockPixelOffset({height, lockOffset: minLockOffset, width}),
-    getLockPixelOffset({height, lockOffset: maxLockOffset, width}),
+    getLockPixelOffset({ height, lockOffset: minLockOffset, width }),
+    getLockPixelOffset({ height, lockOffset: maxLockOffset, width }),
   ];
 }
 
@@ -244,8 +244,8 @@ function isScrollable(el) {
   const overflowRegex = /(auto|scroll)/;
   const properties = ['overflow', 'overflowX', 'overflowY'];
 
-  return properties.find((property) =>
-    overflowRegex.test(computedStyle[property]),
+  return properties.find(property =>
+    overflowRegex.test(computedStyle[property])
   );
 }
 
@@ -269,7 +269,7 @@ export function getContainerGridGap(element) {
     };
   }
 
-  return {x: 0, y: 0};
+  return { x: 0, y: 0 };
 }
 
 export const KEYCODE = {
@@ -300,7 +300,7 @@ export function cloneNode(node) {
 
   clonedFields.forEach((field, i) => {
     if (field.type !== 'file') {
-      field.value = fields[i].value;
+      field.value = fields[i]?.value ?? '';
     }
 
     // Fixes an issue with original radio buttons losing their value once the
