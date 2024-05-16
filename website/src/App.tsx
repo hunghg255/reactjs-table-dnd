@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import { MenuOutlined } from '@ant-design/icons';
 
 import { Space, Table, Tag } from 'antd';
@@ -87,6 +87,34 @@ const SortableBody = SortableContainer((props: React.HTMLAttributes<HTMLTableSec
   <tbody {...props} />
 ));
 
+const SortableItem1 = SortableElement(({ value }: any) => <li className='item'>{value}</li>);
+
+const SortableList = SortableContainer(({ items }: any) => {
+  return (
+    <ul>
+      {items.map((value: any, index: any) => (
+        //@ts-ignore
+        <SortableItem1 key={`item-${value}`} index={index} value={value} />
+      ))}
+    </ul>
+  );
+});
+
+class SortableComponent extends Component {
+  state = {
+    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'],
+  };
+  onSortEnd = ({ oldIndex, newIndex }: any) => {
+    this.setState(({ items }: any) => ({
+      items: arrayMove(items, oldIndex, newIndex),
+    }));
+  };
+  render() {
+    //@ts-ignore
+    return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
+  }
+}
+
 const App = () => {
   const [data, setData] = useState([
     {
@@ -139,6 +167,8 @@ const App = () => {
 
   return (
     <main>
+      <h2>Ant Design Table</h2>
+
       <Table
         columns={columns}
         dataSource={data}
@@ -151,6 +181,10 @@ const App = () => {
       />
 
       <GitHubCorners position='right' href='https://github.com/hunghg255/reactjs-table-dnd' />
+
+      <h2>List Item</h2>
+
+      <SortableComponent />
     </main>
   );
 };

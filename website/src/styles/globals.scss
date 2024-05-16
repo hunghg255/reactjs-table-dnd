@@ -21,4 +21,17 @@ body {
 main {
   max-width: 768px;
   margin: 0 auto;
+  padding: 32px;
+
+  h2 {
+    font-size: 32px;
+    text-align: center;
+    margin: 0 0 12px;
+  }
+}
+
+.item {
+  margin-bottom: 8px;
+  padding: 10px;
+  background-color: #ccc;
 }
