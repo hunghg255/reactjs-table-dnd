@@ -1,75 +1,66 @@
 {
-  "version": "1.0.3",
-  "license": "MIT",
+  "name": "reactjs-table-dnd",
+  "version": "1.0.5",
+  "description": "A Sort component for Reactjs and antd ✨",
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
-  "engines": {
-    "node": ">=10"
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "type-check": "tsc --noEmit",
+    "build": "bunchee --minify",
+    "dev": "bunchee --watch",
+    "dev:website": "turbo run dev --filter=website...",
+    "format": "prettier --write ."
   },
-  "peerDependencies": {
-    "react": ">=16"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "reactjs-table-dnd",
-  "author": "hunghg255",
-  "module": "dist/reactjs-table-dnd.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/reactjs-table-dnd.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/reactjs-table-dnd.esm.js",
-      "limit": "10 KB"
-    }
+  "keywords": [
+    "react",
+    "ant-design",
+    "antd",
+    "table",
+    "sort"
   ],
-  "devDependencies": {
-    "@babel/preset-react": "^7.18.6",
-    "@size-limit/preset-small-lib": "^8.1.2",
-    "@types/invariant": "^2.2.35",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "husky": "^8.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "size-limit": "^8.1.2",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.5.0",
-    "typescript": "^4.9.5"
-  },
-  "dependencies": {
-    "invariant": "^2.2.4",
-    "prop-types": "^15.8.1"
-  },
-  "homepage": "https://github.com/hunghg255/reactjs-table-dnd",
+  "author": "hunghg255 <giahung197bg@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://reactjs-table-dnd.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hunghg255/reactjs-table-dnd"
+    "url": "https://github.com/hunghg255/reactjs-table-dnd.git"
   },
   "bugs": {
     "url": "https://github.com/hunghg255/reactjs-table-dnd/issues"
+  },
+  "devDependencies": {
+    "@types/node": "20.5.7",
+    "@types/react": "18.2.55",
+    "@types/react-dom": "18.2.18",
+    "bunchee": "^4.4.6",
+    "eslint": "^7.32.0",
+    "prettier": "^2.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "turbo": "1.6",
+    "typescript": "5.2.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0"
+  },
+  "packageManager": "pnpm@6.32.11",
+  "dependencies": {
+    "invariant": "^2.2.4",
+    "prop-types": "^15.8.1"
   }
 }

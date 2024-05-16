@@ -1,0 +1,44 @@
+{
+  "name": "reactjs-table-dnd-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run lint && tsc && vite build",
+    "preview": "vite preview",
+    "start": "npm run build && vite preview",
+    "lint": "eslint --ext .ts,.tsx src --color",
+    "format": "prettier --write \"./src/**/*.{ts,tsx,json}\"",
+    "analyze": "npm run lint && tsc && vite build --mode=analyze && source-map-explorer 'dist/assets/*.js'"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "@uiw/react-github-corners": "^1.5.15",
+    "antd": "^5.2.0",
+    "antd-dayjs-vite-plugin": "^1.2.2",
+    "dayjs": "^1.11.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "reactjs-table-dnd": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.11",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@types/react-helmet": "^6.1.6",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "@vitejs/plugin-react": "^2.2.0",
+    "eslint": "^8.31.0",
+    "eslint-config-react-app": "^7.0.1",
+    "prettier": "^2.8.2",
+    "sass": "^1.57.1",
+    "source-map-explorer": "^2.5.3",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vite-plugin-checker": "^0.5.1",
+    "vite-plugin-environment": "^1.1.3"
+  }
+}
